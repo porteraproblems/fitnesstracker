@@ -6,7 +6,7 @@ router.get("/api/workouts", (req, res) => {
     console.log("api GET workouts running");
     db.Workout.find({})
         .sort({ date: 1 })
-        // .populate("exercises")
+        .populate("exercises")
         .then(dbWorkout => {
             res.json(dbWorkout);
         })
